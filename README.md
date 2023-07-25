@@ -1,6 +1,10 @@
 # Visualize LLM evals 
 
 This streamlip app receives a markdown table (rows: models, columns: evals) and visualizes these with a plotly radar chart.
+More visualizations to come.
+
+<img src="static/llm-dashboard-screenshot.png" width="600" height="450">
+
 
 ## Installation
 In your conda environment, clone the repo, `cd` into it and install the requirements:
@@ -36,3 +40,8 @@ The markdown table should look like this (column and row names are flexible):
 | EleutherAI/pythia-6.9b              |  0.248811 |          0.218628 |                0.308817 |                 0.304028 |                  0.120792  |                0.291793 |
 | stabilityai/stablelm-tuned-alpha-7b |  0.163522 |          0.129503 |                0.198957 |                 0.20249  |                  0.093985  |                0.192676 |
 ```
+
+## Contribute
+1. More input formats (e.g., `.csv`)
+2. More visualizations (e.g., bar charts, single examples)
+3. Better and newer evaluated models.
