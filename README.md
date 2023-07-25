@@ -3,7 +3,7 @@
 This streamlip app receives a markdown table (rows: models, columns: evals) and visualizes these with a plotly radar chart.
 More visualizations to come.
 
-<img src="static/llm-dashboard-screenshot.png" width="600" height="450">
+<img src="static/llm-dashboard-screenshot.png" width="700" height="450">
 
 
 ## Installation
