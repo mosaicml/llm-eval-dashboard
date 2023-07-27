@@ -1,0 +1,7 @@
+model_name,average,world_knowledge,commonsense_reasoning,language_understanding,symbolic_problem_solving,reading_comprehension
+llama-30b,0.508013,0.570561,0.521302,0.549439,0.321474,0.577292
+huggyllama/llama-13b,0.428223,0.511058,0.464285,0.482423,0.23844,0.444907
+huggyllama/llama-7b,0.351241,0.354118,0.396072,0.428827,0.182015,0.395171
+togethercomputer/RedPajama-INCITE-7B-Instruct,0.354936,0.368793,0.367142,0.395898,0.210048,0.432801
+mosaicml/mpt-7b-instruct,0.338077,0.338253,0.416911,0.371509,0.17265,0.391062
+mosaicml/mpt-7b,0.310326,0.310191,0.384509,0.380392,0.162957,0.31358
