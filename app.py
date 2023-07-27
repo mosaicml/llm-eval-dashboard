@@ -23,7 +23,10 @@ uploaded_file = st.sidebar.file_uploader("Upload a CSV file", type=["csv"])
 
 if uploaded_file:
     st.sidebar.text("You uploaded a CSV file.")
-    df = pd.read_csv(uploaded_file)
+    md_df = pd.read_csv(uploaded_file)
+    # Check if 'model_name' column exists before setting it as the index
+    if 'model_name' in md_df.columns:
+        md_df = md_df.set_index('model_name')
 
 else:
     md_default = """
@@ -60,29 +63,30 @@ else:
         how='all'
     ).iloc[1:]
     models = list(md_df.index)
-    md_df = md_df.reset_index()
-    md_df = md_df.set_index('model_name')
     # convert all columns to float type, except for the index
     md_df = md_df.astype(float)
-    df = md_df  # Set the dataframe to be the parsed markdown dataframe
 
 # two columns for the model names and the metrics
 col1, col2 = st.columns(2)
 
 with col1:
+    # Set the default to the first model if it exists, or to an empty list
+    default_model = [list(md_df.index)[0]] if md_df.shape[0] > 0 else []
     # show a multiselect widget with the model names. default to just "mosaicml/mpt-7b"
     selected_models = st.multiselect(
         'Select models to compare',
         list(md_df.index),
-        default=['mosaicml/mpt-7b']
+        default=default_model
     )
 
 with col2:
+    # Set the default to the first metric if it exists, or to an empty list
+    default_metric = [list(md_df.columns)[0]] if md_df.shape[1] > 0 else []
     # show a multiselect widget with the metrics. default to to everything except for "average"
     selected_metrics = st.multiselect(
         'Select metrics to compare',
         list(md_df.columns),
-        default=list(md_df.columns)[1:]
+        default=default_metric
     )
 
 # restrict the dataframe to the selected models and metrics
