@@ -17,8 +17,9 @@ def grab_categories_and_values(df: pd.DataFrame, model_name: str = None) -> Tupl
 st.title("LLM evaluator")
 
 # Add a sidebar title
-st.sidebar.title('Eval Markdown Input')
-
+st.sidebar.title('Eval Input')
+# Add file uploader for .csv format
+uploaded_file = st.sidebar.file_uploader("Upload a CSV file", type=["csv"])
 md_default = """
 | model_name               |   average |   world_knowledge |   commonsense_reasoning |   language_understanding |   symbolic_problem_solving |   reading_comprehension |
 |:-------------------------|----------:|------------------:|------------------------:|-------------------------:|---------------------------:|------------------------:|
